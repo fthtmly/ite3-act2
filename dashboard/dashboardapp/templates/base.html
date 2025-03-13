@@ -1,0 +1,110 @@
+{% load custom_filters %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Dashboard{% endblock %}</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        body {
+            display: flex;
+            height: 100vh;
+            background: linear-gradient(135deg, #ffe4ec, #ffc6f0); /* Soft pink gradient */
+            padding: 20px;
+        }
+
+        .sidebar {
+            width: 260px;
+            background: white;
+            color: #bd1362;
+            padding: 20px;
+            border-radius: 20px;
+            box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        .sidebar h2 {
+            font-size: 22px;
+            text-transform: uppercase;
+            text-align: center;
+            font-weight: bold;
+        }
+        .sidebar a {
+            display: block;
+            color: #bd1362;
+            padding: 12px;
+            text-decoration: none;
+            font-size: 16px;
+            border-radius: 10px;
+            transition: all 0.3s;
+            text-align: center;
+            font-weight: bold;
+        }
+        .sidebar a:hover {
+            background: #ffc6f0;
+        }
+
+        .content {
+            flex: 1;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .card-container {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        .card {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 20px;
+            width: 220px;
+            text-align: center;
+            color: #bd1362;
+            font-weight: bold;
+            box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            background: #ffc6f0;
+            color: white;
+        }
+        .card h2 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+        .card p {
+            font-size: 24px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="sidebar">
+        <h2>Dashboard</h2>
+        <a href="#">Home</a>
+        <a href="#">Reports</a>
+        <a href="#">Settings</a>
+    </div>
+
+    <div class="content">
+        {% block content %}{% endblock %}
+    </div>
+
+</body>
+</html>
